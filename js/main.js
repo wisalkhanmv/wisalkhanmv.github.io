@@ -129,7 +129,7 @@ $(function () {
     },
   });
 
-  bar.animate(0.9);
+  bar.animate(0.95);
 
   var bar = new ProgressBar.Circle(circleprog3, {
     strokeWidth: 7,
@@ -147,7 +147,7 @@ $(function () {
     },
   });
 
-  bar.animate(0.7);
+  bar.animate(0.95);
 
   var bar = new ProgressBar.Line(lineprog1, {
     strokeWidth: 1.72,
@@ -164,7 +164,7 @@ $(function () {
     },
   });
 
-  bar.animate(0.9);
+  bar.animate(0.95);
 
   var bar = new ProgressBar.Line(lineprog2, {
     strokeWidth: 1.72,
@@ -198,7 +198,7 @@ $(function () {
     },
   });
 
-  bar.animate(0.75);
+  bar.animate(0.95);
 
   var bar = new ProgressBar.Line(lineprog4, {
     strokeWidth: 1.72,
@@ -215,7 +215,7 @@ $(function () {
     },
   });
 
-  bar.animate(0.65);
+  bar.animate(0.9);
 
   var bar = new ProgressBar.Line(lineprog5, {
     strokeWidth: 1.72,
@@ -232,7 +232,24 @@ $(function () {
     },
   });
 
-  bar.animate(0.85);
+  bar.animate(0.8);
+
+  var bar = new ProgressBar.Line(lineprog6, {
+    strokeWidth: 1.72,
+    easing: "easeInOut",
+    duration: 1400,
+    delay: 3300,
+    trailWidth: 1.72,
+    svgStyle: {
+      width: "100%",
+      height: "100%",
+    },
+    step: (state, bar) => {
+      bar.setText(Math.round(bar.value() * 100) + " %");
+    },
+  });
+
+  bar.animate(0.7);
 
   // Contact form
   $(".art-input").keyup(function () {
