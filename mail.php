@@ -1,12 +1,25 @@
 <?php
+$name = $_POST['name'];
+  $visitor_email = $_POST['email'];
+  $message = $_POST['message'];
 
-$recepient = "muhammadwisalkhanmv@gmail.com";
-$sitename = "Wisal";
+  $email_from = 'muhammadwisalkhanmv@gmail.com';
 
-$name = trim($_POST["name"]);
-$email = trim($_POST["email"]);
-$text = trim($_POST["text"]);
-$message = "Name: $name \nEmail: $email \nText: $text";
+	$email_subject = "New Form submission";
 
-$pagetitle = "New message from the \"$sitename\"";
-mail($recepient, $pagetitle, $message, "Content-type: text/plain; charset=\"utf-8\"\n From: $recepient");
+	$email_body = "You have received a new message from the user $name.\n".
+                            "Here is the message:\n $message"
+
+$to = "muhammadwisalkhanmv@gmail.com";
+
+  $headers = "From: $email_from \r\n";
+
+  $headers .= "Reply-To: $visitor_email \r\n";
+
+
+  mail($to,$email_subject,$email_body,$headers);
+
+//   redirect to home page
+    header("Location: index.html");
+
+?>
